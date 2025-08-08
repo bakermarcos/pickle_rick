@@ -103,7 +103,7 @@ Retorna a lista de personagens com paginação.
 
 ## 📽️ Demonstração
 
-![Pickle Rick App Demo](assets/gif/demo.gif)
+![Pickle Rick App Demo](assets/gif/pickle_rick.gif)
 
 ---
 
