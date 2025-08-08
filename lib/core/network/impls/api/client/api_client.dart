@@ -12,7 +12,7 @@ class ApiClient implements Api {
     client = Dio()
       ..interceptors.add(_customInterceptors)
       ..options.responseType = ResponseType.json
-      ..options.baseUrl = dotenv.env.getValue(key: "baseURL") as String
+      ..options.baseUrl = dotenv.env.getValue(key: "base_url") as String
       ..options.connectTimeout = const Duration(milliseconds: 10000);
   }
 }

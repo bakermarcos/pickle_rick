@@ -3,7 +3,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pickle_rick/core/di/dependency_injector.dart';
 import 'package:pickle_rick/core/routes/routes.dart';
-import 'package:pickle_rick/presentation/characteres/view/characteres_page.dart';
 import 'package:pickle_rick/presentation/characteres/provider/characteres_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +14,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => GetIt.instance<CharacteresListProvider>(),
+          create: (_) => GetIt.I.get<CharacteresListProvider>(),
         ),
       ],
       child: const MyApp(),
@@ -31,10 +30,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pickle Rick App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
       ),
       routes: Routes.routes,
-      home: const CharacteresPage(),
     );
   }
 }

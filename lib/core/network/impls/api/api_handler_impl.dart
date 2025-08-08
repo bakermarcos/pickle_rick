@@ -41,14 +41,12 @@ class ApiHandlerImpl implements ApiHandler {
   @override
   Future<DataResult> get(
     String path, {
-    Map? body,
     Options? options,
     Map<String, dynamic>? queryParameters,
   }) async {
     final response = await api.client.get(
       path,
       options: options,
-      data: json.encode(body),
       queryParameters: queryParameters,
     );
     return RemoteDataResult(data: response.data);

@@ -15,35 +15,30 @@ class CharacteresPage extends StatefulWidget {
 class _CharacteresPageState extends State<CharacteresPage> {
   @override
   Widget build(BuildContext context) {
-    context.watch<CharacteresListProvider>();
-
+    final viewModel = context.watch<CharacteresListProvider>();
     return Scaffold(
       appBar: AppBar(title: const Text('Characters')),
-      body: Consumer<CharacteresListProvider>(
-        builder: (context, viewModel, _) {
-          return Column(
-            children: [
-              if (viewModel.errorMessage != null)
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    viewModel.errorMessage!,
-                    style: const TextStyle(color: Colors.red),
-                  ),
-                ),
-              Expanded(
-                child: PaginatedListView<Character>(
-                  fetchPage: (page) async {
-                    final result = await viewModel.fetchPage(page);
-                    return result;
-                  },
-                  itemBuilder: (context, character, index) =>
-                      CharacterCard(character: character),
-                ),
+      body: Column(
+        children: [
+          if (viewModel.errorMessage != null)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                viewModel.errorMessage!,
+                style: const TextStyle(color: Colors.red),
               ),
-            ],
-          );
-        },
+            ),
+          Expanded(
+            child: PaginatedListView<Character>(
+              fetchPage: (page) async {
+                await viewModel.fetchPage(page);
+                return viewModel.characters;
+              },
+              itemBuilder: (context, character, index) =>
+                  CharacterCard(character: character),
+            ),
+          ),
+        ],
       ),
     );
   }

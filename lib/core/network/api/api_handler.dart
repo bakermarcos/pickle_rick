@@ -23,7 +23,6 @@ abstract class ApiHandler {
 
   Future<DataResult> get(
     String path, {
-    Map? body,
     Options? options,
     Map<String, dynamic>? queryParameters,
   });

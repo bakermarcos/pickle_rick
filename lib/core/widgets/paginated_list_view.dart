@@ -78,7 +78,7 @@ class _PaginatedListViewState<T> extends State<PaginatedListView<T>> {
   @override
   Widget build(BuildContext context) {
     if (initialLoad && isLoading) {
-      return Center(child: SpinKitChasingDots());
+      return Center(child: SpinKitChasingDots(color: Colors.greenAccent));
     }
 
     return ListView.builder(
@@ -91,7 +91,7 @@ class _PaginatedListViewState<T> extends State<PaginatedListView<T>> {
         } else {
           return Padding(
             padding: const EdgeInsets.symmetric(vertical: 24),
-            child: Center(child: SpinKitChasingDots()),
+            child: Center(child: SpinKitChasingDots(color: Colors.greenAccent)),
           );
         }
       },

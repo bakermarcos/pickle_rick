@@ -1,11 +1,8 @@
-// import 'dart:convert';
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 class CustomInterceptors extends Interceptor {
-  CustomInterceptors();
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
     debugPrint('REQUEST[${options.method}] => PATH: ${options.uri}');
@@ -28,7 +25,7 @@ class CustomInterceptors extends Interceptor {
         requestOptions: response.requestOptions,
         response: response,
         type: DioExceptionType.badResponse,
-        error: responseData['error'], // Adiciona o erro detectado
+        error: responseData['error'],
       );
       return handler.reject(error);
     }

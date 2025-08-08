@@ -10,22 +10,23 @@ class CharacteresListProvider extends ChangeNotifier {
 
   String? _errorMessage;
   String? get errorMessage => _errorMessage;
+  PaginatedModel<Character>? _characters;
+  PaginatedModel<Character>? get characters => _characters;
 
-  Future<PaginatedModel<Character>?> fetchPage(int page) async {
+  Future<void> fetchPage(int page) async {
     _errorMessage = null;
 
     final result = await _getCharactersUseCase.call(page: page);
 
     result.processResult(
       onSuccess: (data) {
+        _characters = data;
         notifyListeners();
-        return data;
       },
       onFailure: (error) {
         _errorMessage = error.toString();
         notifyListeners();
       },
     );
-    return null;
   }
 }
