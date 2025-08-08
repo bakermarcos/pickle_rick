@@ -1,36 +1,36 @@
 # 🧪 Pickle Rick - Flutter App
 
-Aplicativo Flutter baseado no universo de **Rick and Morty**, consumindo a [Rick and Morty API](https://rickandmortyapi.com/api), utilizando **Clean Architecture** com padrão **MVVM** e **Provider** como gerência de estado.
+Flutter application inspired by the **Rick and Morty** universe, consuming the [Rick and Morty API](https://rickandmortyapi.com/api), built using **Clean Architecture** with the **MVVM** pattern and **Provider** for state management.
 
 ---
 
-## 🧠 Arquitetura
+## 🧠 Architecture
 
-Este projeto utiliza a abordagem **Clean Architecture** com separação em camadas e padrão **MVVM (Model - View - ViewModel)**:
+This project follows the **Clean Architecture** approach with a **MVVM (Model - View - ViewModel)** pattern, organized into layers:
 
 ```
 lib/
-├── core/              # Recursos compartilhados (DI, network, widgets reutilizáveis)
-├── data/              # Implementações (datasources, dtos, repositórios)
-├── domain/            # Models, repositórios abstratos e casos de uso
-├── presentation/      # UI (páginas, providers/ViewModels e widgets)
-├── main.dart          # main
+├── core/              # Shared resources (DI, network, reusable widgets)
+├── data/              # Implementations (datasources, DTOs, repositories)
+├── domain/            # Models, abstract repositories, and use cases
+├── presentation/      # UI (pages, providers/ViewModels, and widgets)
+├── main.dart          # Entry point
 ```
 
 ---
 
-## ⚙️ Tecnologias
+## ⚙️ Technologies
 
 - **Flutter 3.8.1**
-- **Dio** para requisições HTTP
-- **GetIt** para injeção de dependências
-- **Provider** com **ChangeNotifier** para gerência de estado
-- **Flutter Dotenv** para gerenciar variáveis de ambiente
-- **Rick and Morty API** como fonte de dados
+- **Dio** for HTTP requests
+- **GetIt** for dependency injection
+- **Provider** with **ChangeNotifier** for state management
+- **Flutter Dotenv** for environment variable management
+- **Rick and Morty API** as the data source
 
 ---
 
-## 📦 Dependências
+## 📦 Dependencies
 
 ```yaml
 dependencies:
@@ -46,28 +46,28 @@ dependencies:
 
 ---
 
-## 🧪 Execução
+## 🧪 Running the App
 
-1. Clone este repositório:
+1. Clone this repository:
 
 ```bash
-git clone https://github.com/seu-usuario/pickle_rick.git
+git clone https://github.com/your-username/pickle_rick.git
 cd pickle_rick
 ```
 
-2. Crie um arquivo `.env` na raiz com o seguinte conteúdo (ajustável conforme necessidade):
+2. Create a `.env` file at the root directory with the following content (adjust if needed):
 
 ```env
 base_url=https://rickandmortyapi.com/api
 ```
 
-3. Instale as dependências:
+3. Install dependencies:
 
 ```bash
 flutter pub get
 ```
 
-4. Rode o app:
+4. Run the app:
 
 ```bash
 flutter run
@@ -75,46 +75,45 @@ flutter run
 
 ---
 
-## 🧱 Organização por Camadas
+## 🧱 Layer Organization
 
-| Camada          | Descrição                                                                 |
-|-----------------|---------------------------------------------------------------------------|
-| `domain`        | Contém as entidades, interfaces e usecases                                |
-| `data`          | Implementa os repositórios e datasources com chamadas à API               |
-| `presentation`  | Interface do usuário, widgets, páginas e providers (viewmodels)           |
-| `core`          | Recursos reutilizáveis, rotas, di, utilitários, network e widgets comuns  |
-| `app`           | Inicialização da aplicação (main, routes, DI setup)                       |
+| Layer           | Description                                                                  |
+|-----------------|------------------------------------------------------------------------------|
+| `domain`        | Contains models, interfaces, and use cases                                   |
+| `data`          | Implements repositories and datasources with API calls                       |
+| `presentation`  | User interface, widgets, pages, and providers (ViewModels)                   |
+| `core`          | Reusable resources, routes, DI setup, utilities, network, and common widgets |
 
 ---
 
 ## 📡 API
 
-Este app consome a [Rick and Morty API](https://rickandmortyapi.com/documentation).
+This app consumes the [Rick and Morty API](https://rickandmortyapi.com/documentation).
 
-Exemplo de endpoint utilizado:
+Example endpoint used:
 
 ```
 GET https://rickandmortyapi.com/api/character
 ```
 
-Retorna a lista de personagens com paginação.
+Returns a paginated list of characters.
 
 ---
 
-## 📽️ Demonstração
+## 📽️ Demo
 
-![Pickle Rick App Demo](assets/gif/pickle_rick.gif)
+<img src="assets/gif/pickle_rick.gif" alt="Pickle Rick App Demo" width="400"/>
 
 ---
 
-## 🧑‍💻 Autor
+## 🧑‍💻 Author
 
-Desenvolvido por **Marcos Baker**  
+Developed by **Marcos Baker**  
 [marcos.baker@hotmail.com](mailto:marcos.baker@hotmail.com)  
 [LinkedIn](https://www.linkedin.com/in/marcosbaker)
 
 ---
 
-## 📄 Licença
+## 📄 License
 
-Este projeto é open source e está licenciado sob os termos da [MIT License](LICENSE).
+This project is open source and licensed under the terms of the [MIT License](LICENSE).
