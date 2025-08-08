@@ -10,17 +10,12 @@ class StatusWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       decoration: BoxDecoration(
-        color: status == CharacterStatusEnum.alive ? Colors.green : Colors.red,
+        color: CharacterStatusEnum.getStatusColor(status),
         borderRadius: BorderRadius.circular(4.0),
       ),
       child: Text(
         status.value,
-        style: TextStyle(
-          color: status == CharacterStatusEnum.alive
-              ? Colors.white
-              : Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
       ),
     );
   }

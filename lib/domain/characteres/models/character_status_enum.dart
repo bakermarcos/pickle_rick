@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 enum CharacterStatusEnum {
   alive,
   dead,
@@ -10,7 +12,7 @@ enum CharacterStatusEnum {
       case CharacterStatusEnum.dead:
         return 'Dead';
       case CharacterStatusEnum.unknown:
-        return 'unknown';
+        return 'Unknown';
     }
   }
 
@@ -22,6 +24,17 @@ enum CharacterStatusEnum {
         return CharacterStatusEnum.dead;
       default:
         return CharacterStatusEnum.unknown;
+    }
+  }
+
+  static Color getStatusColor(CharacterStatusEnum status) {
+    switch (status) {
+      case CharacterStatusEnum.alive:
+        return Colors.green;
+      case CharacterStatusEnum.dead:
+        return Colors.red;
+      default:
+        return Colors.grey;
     }
   }
 }

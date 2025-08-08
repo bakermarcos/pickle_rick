@@ -18,7 +18,9 @@ class CharacterCard extends StatelessWidget {
           arguments: {'character': character},
         ),
         child: Container(
+          height: 150,
           padding: const EdgeInsets.all(8.0),
+          margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
             color: Colors.white,
@@ -32,19 +34,19 @@ class CharacterCard extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
                   character.imageUrl,
-                  height: 150,
-                  width: double.infinity,
+                  height: 120,
+                  width: 120,
                   fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(width: 8.0),
-              Expanded(
+              Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -54,6 +56,22 @@ class CharacterCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 8.0),
                     StatusWidget(status: character.status),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      'Species: ${character.species}',
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4.0),
+                    Text(
+                      'Gender: ${character.gender.value}',
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),

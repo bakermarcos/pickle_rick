@@ -29,7 +29,8 @@ class CharacterDetailPage extends StatelessWidget {
             StatusWidget(status: character.status),
             const SizedBox(height: 16),
             _InfoRow(label: 'Species', value: character.species),
-            _InfoRow(label: 'Type', value: character.type),
+            if (character.type.isNotEmpty)
+              _InfoRow(label: 'Type', value: character.type),
             _InfoRow(label: 'Gender', value: character.gender.value),
             _InfoRow(label: 'Origin', value: character.originName.name),
             _InfoRow(label: 'Location', value: character.locationName.name),
@@ -52,8 +53,11 @@ class _InfoRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         children: [
-          Text('$label: ', style: const TextStyle(fontWeight: FontWeight.bold)),
-          Expanded(child: Text(value)),
+          Text(
+            '$label: ',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          Expanded(child: Text(value, style: const TextStyle(fontSize: 20))),
         ],
       ),
     );
