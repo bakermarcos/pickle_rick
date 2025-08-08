@@ -23,7 +23,7 @@ extension PaginatedCharacteresDto on PaginatedModel<Character> {
           .map((item) => CharacterDto.fromData(item))
           .toList(),
       currentPage: nextPage.isNotEmpty
-          ? int.parse(nextPage.characterId) + 1
+          ? int.parse(nextPage.pageId) + 1
           : 1,
     );
   }

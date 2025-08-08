@@ -1,7 +1,6 @@
 import 'package:intl/intl.dart';
 
 extension StringExtension on String {
-
   String get toPrecisionString {
     num value = num.parse(this);
     return value.toStringAsFixed(2);
@@ -14,10 +13,7 @@ extension StringExtension on String {
       }
       num value = num.parse(this);
 
-      final formatter = NumberFormat.currency(
-        locale: 'pt_BR',
-        symbol: 'R\$',
-      );
+      final formatter = NumberFormat.currency(locale: 'pt_BR', symbol: 'R\$');
 
       return formatter.format(value);
     } catch (e) {
@@ -36,7 +32,11 @@ extension StringExtension on String {
     return null;
   }
 
-  String get characterId{
+  String get characterId {
     return substring(lastIndexOf('/') + 1);
+  }
+
+  String get pageId {
+    return substring(lastIndexOf('page=') + 5);
   }
 }

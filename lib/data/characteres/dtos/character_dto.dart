@@ -6,6 +6,7 @@ import 'package:pickle_rick/domain/characteres/models/gender_enum.dart';
 
 extension CharacterDto on Character {
   static Character fromData(Map<String, dynamic> data) {
+    final episodes = data.getValueOrDefault(key: 'episode', defaultValue: []);
     return Character(
       id: data.getIntValueOrDefault(key: 'id'),
       name: data.getValueOrDefault(key: 'name', defaultValue: ''),
@@ -19,10 +20,7 @@ extension CharacterDto on Character {
       gender: GenderEnum.fromString(
         data.getValueOrDefault(key: 'gender', defaultValue: ''),
       ),
-      episodes: data.getValueOrDefault(
-        key: 'episode',
-        defaultValue: <String>[],
-      ),
+      episodes: episodes.map((e) => e.toString()).toList(),
       originName: CharacterLocationDto.fromData(
         data.getValueOrDefault(key: 'origin', defaultValue: {}),
       ),
